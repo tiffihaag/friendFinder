@@ -152,7 +152,7 @@
 		<hr>
 	    <footer class="footer">
 	      <div class="container">
-		        <p><a href="C:/Users/Tiffi/Desktop/Bootcamp/Week13/Week13/FriendFinder/app/data/friends.js">API Friends List</a> | <a href="https://github.com/tiffihaag/week13">Tiff's GitHub Repo</a></p>
+		        <p><a href="friends">API Friends List</a> | <a href="https://github.com/tiffihaag/week13">Tiff's GitHub Repo</a></p>
 	      </div>
 	    </footer>
 
@@ -227,7 +227,7 @@
 	    	var currentURL = window.location.origin;
 
 	    	// AJAX post the data to the friends API. 
-	    	$.post(currentURL + "/api/friends", userData, function(data){
+	    	$.post(currentURL + "/bootcamp/friendFinder/api/friends", userData, function(data){
 
 	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
 	    		$("#matchName").text(data.name);
