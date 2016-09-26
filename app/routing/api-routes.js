@@ -72,3 +72,5 @@ app.post('/api/new', function (req, res) {
 
 	res.json(yourFriend);
 });
+
+}

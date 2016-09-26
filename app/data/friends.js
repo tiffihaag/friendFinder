@@ -35,6 +35,6 @@ var friend = [{
 	age: 24,
 	photo: "http://www.lastrites.tv/images/team/1.jpg",
 	scores: [2, 2, 2, 1, 2, 2, 3, 4, 2, 5]
-}
+}]
 
 module.exports = friend;
