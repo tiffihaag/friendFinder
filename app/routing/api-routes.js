@@ -5,12 +5,12 @@ var friendsFile = require('../data/friends.js');
 
 // ROUTING
 module.exports = function (app) {
-	app.get('/api/friends', function (req, res) {
+	app.get('localhost/bootcamp/friendfinder/api/friends', function (req, res) {
 		res.json(friendsFile);
 	});
 
 // API POST  
-	app.post('/api/friends', function (req, res) {
+	app.post('localhost/bootcamp/friendfinder/api/friends', function (req, res) {
 		// Here's where I want to match the user to the compatible person
 		//........
 		// sort
