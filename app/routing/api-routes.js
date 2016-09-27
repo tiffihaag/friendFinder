@@ -5,12 +5,12 @@ var friendsFile = require('../data/friends.js');
 
 // ROUTING
 module.exports = function (app) {
-	app.get('localhost/bootcamp/friendfinder/api/friends', function (req, res) {
+	app.get('/api/friends', function (req, res) {
 		res.json(friendsFile);
 	});
 
 // API POST  
-	app.post('localhost/bootcamp/friendfinder/api/friends', function (req, res) {
+	app.post('/api/friends', function (req, res) {
 		// Here's where I want to match the user to the compatible person
 		//........
 		// sort
@@ -32,20 +32,31 @@ module.exports = function (app) {
 
 		// Search for Specific Character (or all characters) - provides JSON
 			
-		var chosen = req.params.friend;
+		//var chosen = req.params.friend;
 
 		var differences = [];
 		var runningDiff = 0;
 
-			for (var i = 0; i < friend.length; i++) {
-				for(var x = 0; x > friend[i].scores.length; x++) {
-					runningDiff = runningDiff + math.abs(userData.scores[x] - friend[i].scores[x]);
+			for (var i = 0; i < friendsFile.length; i++) {
+				for(var x = 0; x > friendsFile[i].scores.length; x++) {
+					runningDiff = runningDiff + math.abs(userData.scores[x] - friendsFile[i].scores[x]);
 				}
 				differences[i] = runningDiff;
 				runningDiff = 0;
 			}
-		});
 
+			app.post('/api/new', function (req, res) {
+				var yourFriend = req.body;
+
+				console.log(yourFriend);
+
+				friendsFile.push(yourFriend);
+
+				res.json(yourFriend);
+
+				res.send({'name':friendsFile, 'photo': friend[i].photo});
+			});
+		});
 
 // Your api-routes.js file should contain two routes:
 var path = require("path")
@@ -61,16 +72,5 @@ exports.survey= function(req, res){
 exports.friends = function(req, res){
 	res.json(friendsFile);
 }
-
-// A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
-app.post('/api/new', function (req, res) {
-	var yourFriend = req.body;
-
-	console.log(yourFriend);
-
-	friends.push(yourFriend);
-
-	res.json(yourFriend);
-});
 
 }

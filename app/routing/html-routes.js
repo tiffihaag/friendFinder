@@ -4,6 +4,7 @@ var path = require('path')
 // A GET Route to /survey which should display the survey page.
 module.exports = function (app) {
 app.get('/survey', function (req, res) {
+	console.log(path.join(__dirname, '../public/survey.html'));
 	res.sendFile(path.join(__dirname, '../public/survey.html'));
 });
 
@@ -11,3 +12,4 @@ app.get('/survey', function (req, res) {
 app.use('/home', function (req, res) {
             res.sendFile(path.join(__dirname, '../public/home.html'));
         });
+}
